@@ -6,19 +6,19 @@ import java.util.ArrayList;
 
 import Weapons.Weapon;
 
-public class Mob extends Entity implements I_Mob  {
+public class Mob extends Entity implements I_Mob {
 
 	protected String name;
 	protected int HP;
 	protected int MAX_HP;
 	@SuppressWarnings("unused")
 	private ArrayList<Weapon> weaponsList;
-	private int X_POS;
-	private int Y_POS;
+	protected int X_POS;
+	protected int Y_POS;
 	private int speed;
-	private int direction;
+	protected int direction;
 
-	 /**
+	/**
 	 * Creates a player
 	 * 
 	 * @param name
@@ -53,7 +53,6 @@ public class Mob extends Entity implements I_Mob  {
 	public void setMaxHP(int MAX_HP) {
 		this.MAX_HP = MAX_HP;
 	}
-
 
 	public int getXPosition() {
 		return X_POS;
@@ -105,9 +104,13 @@ public class Mob extends Entity implements I_Mob  {
 	}
 
 	public void setDirection(int x, int y) {
-		direction = (int) Math
-				.toDegrees(Math.atan((Math.abs(this.Y_POS - y) / Math
-						.abs(this.X_POS - x))));
+		direction = angleToTurn(x, y);
+	}
+		
+	private int angleToTurn(int x, int y) {
+		double xDist = x - X_POS;
+		double yDist = y - Y_POS;
+		return (int) Math.toDegrees(Math.atan2(xDist, yDist));
 	}
 
 	public int getDirection() {
@@ -128,7 +131,15 @@ public class Mob extends Entity implements I_Mob  {
 
 	@Override
 	public void render(Graphics g) {
-			g.drawString(name, 300, 300);
+
+	}
+
+	public void setXPosition(int X_POS) {
+		this.X_POS = X_POS;
+	}
+
+	public void setYPosition(int Y_POS) {
+		this.Y_POS = Y_POS;
 	}
 
 }

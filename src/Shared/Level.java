@@ -1,5 +1,6 @@
 package Shared;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
@@ -31,9 +32,18 @@ public class Level {
 	 * Renders all entities to screen
 	 * @param g {@link Graphics2D}
 	 */
-	public void render(Graphics2D g) {
+	public void render(Graphics g) {
 		for (Entity e : entities) {
 			e.render(g);
+		}
+	}
+	
+	/**
+	 * A tick is one game loop
+	 */
+	public void tick() {
+		for (Entity e : entities) {
+			e.tick();
 		}
 	}
 	

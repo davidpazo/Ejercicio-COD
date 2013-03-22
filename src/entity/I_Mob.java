@@ -51,10 +51,22 @@ public interface I_Mob {
 	public int getXPosition();
 	
 	/**
+	 * Sets the X position on the map
+	 * @param X_POS {@link int} X position
+	 */
+	public void setXPosition(int X_POS);
+	
+	/**
 	 * Gets the players Y position on the map
 	 * @return {@link int} Y pos
 	 */
 	public int getYPosition();
+	
+	/**
+	 * Sets the Y position on the map
+	 * @param Y_POS {@link int} Y position
+	 */
+	public void setYPosition(int Y_POS);
 	
 	/**
 	 * Sets the players Speed
