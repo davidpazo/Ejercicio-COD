@@ -15,11 +15,8 @@ public class Main{
 			public void run() {
 				createBase();
 			}
-		});
-		
-		
+		});	
 	}
-
 	private static void createBase() {
 		JFrame frame = new JFrame();
 		frame.setSize(800, 600);
